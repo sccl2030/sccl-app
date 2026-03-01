@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- أيقونة واحدة بسيطة للاختبار -->
-    <link rel="icon" href="https://sccl2030.github.io/sccl-app/icons/favicon_v2.png">
+    <!-- المسار الصحيح للمشروع -->
+    <base href="/sccl-app/">
+    
+    <!-- أيقونة favicon بصيغة ICO - الأكثر توافقاً -->
+    <link rel="icon" type="image/x-icon" href="icons/favicon_v2.ico">
+    <link rel="shortcut icon" href="icons/favicon_v2.ico" type="image/x-icon">
+    
+    <!-- أيقونات iOS تبقى كما هي بصيغة PNG -->
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
     
     <title>ALU - مؤسسة علو للمقاولات</title>
     
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            text-align: center;
             background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2196f3;
         }
-        h1 { color: #2196f3; }
     </style>
 </head>
 <body>
-    <h1>ALU - مؤسسة علو للمقاولات</h1>
-    <p>الموقع يعمل بنجاح ✓</p>
-    
-    <!-- صورة الأيقونة للتأكد من وجودها -->
-    <img src="icons/favicon_v2.png" alt="أيقونة" style="width: 64px; height: 64px; border: 2px solid #2196f3; border-radius: 10px;">
-    
+    <div>ALU - جاري تحميل التطبيق...</div>
     <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
