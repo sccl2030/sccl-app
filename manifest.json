@@ -1,6 +1,6 @@
 {
-    "name": "sccl",
-    "short_name": "sccl",
+    "name": "alu",
+    "short_name": "alu",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
