@@ -3,28 +3,22 @@
 <head>
   <base href="/sccl-app/">
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="مؤسسة علو للمقاولات – ALU Contracting Est. رائدة في أعمال البناء والتشييد">
-  <meta name="theme-color" content="#c49a2b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="مؤسسة علو للمقاولات – ALU Contracting Est.">
+  <meta name="theme-color" content="#1e3c72">
   
   <!-- iOS meta tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="ALU">
-  
-  <!-- أيقونات -->
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="icons/favicon_v2.ico">
   <link rel="shortcut icon" href="icons/favicon_v2.ico">
   
-  <title>ALU | مؤسسة علو للمقاولات</title>
+  <title>ALU - مؤسسة علو للمقاولات</title>
   <link rel="manifest" href="manifest.json">
-  
-  <!-- Google Fonts للخطوط العربية الاحترافية -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -32,298 +26,210 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Cairo', sans-serif;
-      background: #0a1a2f;
       min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       position: relative;
-      overflow-x: hidden;
     }
-    
-    /* خلفية متحركة بنجوم أو أضرار بناء */
-    .bg-pattern {
-      position: fixed;
+
+    /* خلفية متحركة خفيفة (دوائر ضبابية) */
+    .bg-bubbles {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
-        radial-gradient(circle at 30% 40%, rgba(196, 154, 43, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 70% 60%, rgba(196, 154, 43, 0.05) 0%, transparent 20%),
-        linear-gradient(145deg, #0a1a2f 0%, #1a2f3f 100%);
-      z-index: -1;
+      z-index: 0;
     }
-    
-    /* الحاوية الرئيسية */
-    .hero {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* بطاقة احترافية بتأثير زجاجي */
-    .glass-card {
+
+    .bg-bubbles div {
+      position: absolute;
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 40px;
-      padding: 60px 40px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(196, 154, 43, 0.2) inset;
-      text-align: center;
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
     }
-    
-    /* الشعار */
-    .logo {
-      margin-bottom: 20px;
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-20px) translateX(15px); }
+      50% { transform: translateY(10px) translateX(-15px); }
+      75% { transform: translateY(20px) translateX(10px); }
     }
-    
-    .logo h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-      letter-spacing: 8px;
-      color: #c49a2b;
-      text-shadow: 0 2px 10px rgba(196, 154, 43, 0.3), 0 0 30px rgba(196, 154, 43, 0.2);
-      line-height: 1.1;
-    }
-    
-    .logo span {
-      display: block;
-      font-size: 1.2rem;
-      font-weight: 300;
-      letter-spacing: 4px;
-      color: #fff;
-      opacity: 0.7;
-      margin-top: 5px;
-    }
-    
-    .logo .ar {
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 0;
-      margin-top: 10px;
-      color: #e0e0e0;
-    }
-    
-    /* قسم الجمل المتحرك */
-    .camel-section {
-      margin: 40px 0 30px;
+
+    /* المحتوى الرئيسي */
+    .splash-container {
       position: relative;
+      z-index: 10;
+      text-align: center;
+      color: white;
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      animation: fadeIn 1s ease-out;
     }
-    
-    /* مسار الجمل */
-    .track {
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      font-size: 5rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* حاوية الجمل المتحرك */
+    .camel-runner {
+      position: relative;
       width: 100%;
       height: 120px;
-      position: relative;
+      margin: 30px 0;
       overflow: hidden;
       border-radius: 100px;
-      background: rgba(0, 0, 0, 0.3);
-      box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(196, 154, 43, 0.3);
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    
-    /* الجمل المتحرك (SVG احترافي) */
-    .camel-runner {
+
+    .camel-track {
       position: absolute;
-      top: 15px;
-      left: -150px;
-      animation: run 12s linear infinite;
-      filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5));
-    }
-    
-    .camel-svg {
-      width: 120px;
-      height: auto;
-    }
-    
-    /* آثار أقدام (حركة خفيفة) */
-    .footprints {
-      position: absolute;
-      bottom: 15px;
+      top: 0;
       left: 0;
       width: 100%;
+      height: 100%;
       display: flex;
-      justify-content: space-around;
-      opacity: 0.3;
-      animation: fadeFootprints 12s linear infinite;
+      align-items: center;
+      animation: run 12s linear infinite;
     }
-    
-    .footprints span {
-      color: #c49a2b;
-      font-size: 1.5rem;
-      transform: rotate(90deg);
+
+    .camel {
+      font-size: 5rem;
+      line-height: 1;
+      filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+      transform: scaleX(-1); /* لجعل الجمل يتجه لليمين في الوضع RTL */
+      animation: bounce 0.5s ease-in-out infinite alternate;
+      white-space: nowrap;
     }
-    
+
+    /* إضافة عدة جمال */
+    .camel:nth-child(2) {
+      font-size: 4rem;
+      margin-right: 20px;
+      animation-delay: 0.2s;
+      opacity: 0.8;
+    }
+
+    .camel:nth-child(3) {
+      font-size: 3.5rem;
+      margin-right: 15px;
+      animation-delay: 0.4s;
+      opacity: 0.6;
+    }
+
     @keyframes run {
-      0% { left: -150px; }
-      100% { left: 110%; }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-150%); } /* يخفي الجمل بعد الخروج */
     }
-    
-    @keyframes fadeFootprints {
-      0% { opacity: 0; }
-      20% { opacity: 0.3; }
-      80% { opacity: 0.3; }
-      100% { opacity: 0; }
+
+    @keyframes bounce {
+      from { transform: translateY(0) scaleX(-1); }
+      to { transform: translateY(-10px) scaleX(-1); }
     }
-    
-    /* النص التعريفي */
-    .tagline {
-      margin: 30px 0 20px;
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .tagline strong {
-      color: #c49a2b;
-      font-weight: 700;
-    }
-    
-    /* أزرار الخدمات */
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin: 40px 0 20px;
-    }
-    
-    .service-item {
-      background: rgba(196, 154, 43, 0.1);
-      border: 1px solid rgba(196, 154, 43, 0.3);
-      border-radius: 50px;
-      padding: 12px 28px;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #fff;
+
+    /* رسالة تحميل (خفيفة) */
+    .loading-text {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      opacity: 0.8;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      transition: 0.3s;
-      cursor: default;
     }
-    
-    .service-item:hover {
-      background: rgba(196, 154, 43, 0.2);
-      transform: translateY(-3px);
-      border-color: #c49a2b;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+
+    .dot-flash {
+      display: inline-flex;
+      gap: 5px;
     }
-    
-    .service-item i {
-      font-size: 1.4rem;
-      color: #c49a2b;
+
+    .dot-flash div {
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: flash 1.4s infinite ease-in-out both;
     }
-    
-    /* أيقونات بسيطة باستخدام HTML */
-    .icon {
-      font-style: normal;
+
+    .dot-flash div:nth-child(1) { animation-delay: -0.32s; }
+    .dot-flash div:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes flash {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1.2); }
     }
-    
-    /* خط زمني أو معلومات اتصال */
-    .footer-info {
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 30px;
-    }
-    
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .info-item i {
-      color: #c49a2b;
-    }
-    
-    /* استجابة للجوال */
-    @media (max-width: 768px) {
-      .glass-card { padding: 30px 20px; }
-      .logo h1 { font-size: 3rem; letter-spacing: 4px; }
-      .logo .ar { font-size: 1.2rem; }
-      .camel-svg { width: 80px; }
-      .track { height: 80px; }
-      .camel-runner { top: 10px; }
-      .service-item { padding: 8px 18px; font-size: 0.9rem; }
+
+    /* تخصيص لأحجام الشاشات الصغيرة */
+    @media (max-width: 480px) {
+      .logo { font-size: 3.5rem; }
+      .subtitle { font-size: 1.2rem; }
+      .camel { font-size: 4rem; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-pattern"></div>
-  
-  <div class="hero">
-    <div class="glass-card">
-      
-      <!-- الشعار -->
-      <div class="logo">
-        <h1>ALU</h1>
-        <span>CONTRACTING EST.</span>
-        <div class="ar">مؤسسة علو للمقاولات</div>
+  <!-- عناصر الخلفية (دوائر متحركة) -->
+  <div class="bg-bubbles">
+    <div style="width: 150px; height: 150px; top: 10%; left: 5%;"></div>
+    <div style="width: 100px; height: 100px; bottom: 20%; right: 10%;"></div>
+    <div style="width: 200px; height: 200px; top: 50%; left: 80%;"></div>
+  </div>
+
+  <div class="splash-container">
+    <div class="logo">ALU</div>
+    <div class="subtitle">مؤسسة علو للمقاولات</div>
+
+    <!-- الجمل يجري -->
+    <div class="camel-runner">
+      <div class="camel-track">
+        <span class="camel">🐪</span>
+        <span class="camel">🐫</span>
+        <span class="camel">🐪</span>
       </div>
-      
-      <!-- قسم الجمل المتحرك الاحترافي -->
-      <div class="camel-section">
-        <div class="track">
-          <!-- جمل SVG احترافي (يمكن استبداله بصورة إذا أردت) -->
-          <div class="camel-runner">
-            <svg class="camel-svg" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 30 L30 20 L40 20 L50 25 L60 20 L70 20 L80 30 L75 35 L70 35 L65 40 L60 40 L55 35 L45 35 L40 40 L35 40 L30 35 L20 30" fill="#c49a2b" stroke="#8b6b1f" stroke-width="2"/>
-              <circle cx="35" cy="18" r="6" fill="#f0d8a0" stroke="#8b6b1f" stroke-width="1.5"/>
-              <circle cx="38" cy="15" r="1.5" fill="black"/>
-              <circle cx="60" cy="22" r="5" fill="#f0d8a0" stroke="#8b6b1f" stroke-width="1.5"/>
-              <circle cx="63" cy="19" r="1.2" fill="black"/>
-              <path d="M30 30 L25 40 L28 42 L32 38 L38 38 L42 42 L45 40 L40 30" fill="#b38f40" opacity="0.8"/>
-              <rect x="45" y="28" width="8" height="6" rx="2" fill="#8b6b1f" opacity="0.6"/>
-            </svg>
-          </div>
-          <!-- آثار الأقدام -->
-          <div class="footprints">
-            <span>👣</span>
-            <span>👣</span>
-            <span>👣</span>
-            <span>👣</span>
-          </div>
-        </div>
+    </div>
+
+    <!-- مؤشر تحميل أنيق -->
+    <div class="loading-text">
+      <span>يجهز العدة</span>
+      <div class="dot-flash">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      
-      <!-- شعار أو عبارة -->
-      <div class="tagline">
-        <strong>الجودة</strong> في البناء، <strong>إرث</strong> في العطاء
-      </div>
-      
-      <!-- قائمة الخدمات -->
-      <div class="services">
-        <div class="service-item"><i class="icon">🏗️</i> تصميم معماري</div>
-        <div class="service-item"><i class="icon">🏢</i> بناء عام</div>
-        <div class="service-item"><i class="icon">🏭</i> تشييد صناعي</div>
-        <div class="service-item"><i class="icon">🛣️</i> بنية تحتية</div>
-        <div class="service-item"><i class="icon">📐</i> استشارات هندسية</div>
-      </div>
-      
-      <!-- معلومات الاتصال -->
-      <div class="footer-info">
-        <div class="info-item"><i class="icon">📞</i> +966 123 456 789</div>
-        <div class="info-item"><i class="icon">📧</i> info@alu.com.sa</div>
-        <div class="info-item"><i class="icon">📍</i> الرياض، المملكة العربية السعودية</div>
-      </div>
-      
     </div>
   </div>
-  
+
+  <!-- Flutter script -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
