@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" sizes="192x192" href="icons/Icon-192.png">
   <link rel="apple-touch-icon" sizes="512x512" href="icons/Icon-512.png">
   
-  <!-- Favicon لجميع المتصفحات (بصيغة ICO للتوافق الأفضل) -->
+  <!-- Favicon لجميع المتصفحات -->
   <link rel="icon" type="image/x-icon" href="icons/favicon_v2.ico">
   <link rel="shortcut icon" href="icons/favicon_v2.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon_v2.png">
@@ -54,92 +54,44 @@
       margin: 0;
     }
 
-    /* حاوية التحميل */
+    /* حاوية التحميل: تركز المحتوى في المنتصف */
     #loading {
-      text-align: center;
-      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      max-width: 600px;
-      padding: 2rem;
+      height: 100vh;
     }
 
-    /* تصميم الشعار */
-    .logo h1 {
-      font-size: 5rem;
-      font-weight: 900;
-      letter-spacing: 8px;
-      text-shadow: 0 0 20px #2196f3, 0 0 40px #64b5f6;
-      margin-bottom: 1rem;
+    /* اللوجو بحجم كبير مع أنيميشن نبض */
+    .logo-container {
+      text-align: center;
     }
 
-    .logo p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
-      color: #e0e0e0;
-    }
-
-    /* أيقونة ALU الإضافية */
-    .logo-icon {
-      margin: 1.5rem 0;
-    }
-
-    .logo-icon img {
-      width: 120px;
+    .logo-container img {
+      width: 400px;        /* حجم كبير */
+      max-width: 80vw;      /* يستجيب للشاشات الصغيرة */
       height: auto;
-      filter: drop-shadow(0 0 15px rgba(33, 150, 243, 0.7));
+      filter: drop-shadow(0 0 25px rgba(33, 150, 243, 0.8));
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    /* شريط تقدم أنيق */
-    .progress-bar {
-      width: 80%;
-      height: 6px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 10px;
-      margin: 2rem auto 1rem;
-      overflow: hidden;
+    /* تعريف بسيط للنبض (بدلاً من animate.css إذا أردت) */
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
     }
 
-    .progress-fill {
-      width: 30%;
-      height: 100%;
-      background: linear-gradient(90deg, #2196f3, #64b5f6);
-      border-radius: 10px;
-      animation: loading 2s ease-in-out infinite;
-    }
-
-    @keyframes loading {
-      0% { width: 0%; margin-left: 0%; }
-      50% { width: 60%; margin-left: 40%; }
-      100% { width: 0%; margin-left: 100%; }
-    }
-
-    /* نص تحميل */
-    .hint {
-      color: #bbbbbb;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      opacity: 0.8;
-    }
+    /* يمكن استخدام animate.css أيضًا، لكن النبض المخصص أعلاه يعمل */
   </style>
 </head>
 <body>
   <div id="loading">
-    <div class="logo">
-      <h1 class="animate__animated animate__fadeInDown">ALU</h1>
-      <p class="animate__animated animate__fadeInUp animate__delay-1s">مؤسسة علو للمقاولات</p>
-    </div>
-
-    <!-- أيقونة ALU مع أنيميشن نبض بسيط ومستمر -->
-    <div class="logo-icon animate__animated animate__pulse animate__infinite">
+    <div class="logo-container animate__animated animate__pulse animate__infinite">
+      <!-- يمكن استخدام animate__pulse أو إزالة الكلاس والاعتماد على keyframes أعلاه -->
       <img src="icons/alu_logo.png" alt="ALU Logo">
     </div>
-    
-    <div class="progress-bar animate__animated animate__fadeIn animate__delay-1s">
-      <div class="progress-fill"></div>
-    </div>
-    
-    <div class="hint animate__animated animate__fadeIn animate__delay-2s">صحراء المقاولات ... نتحرك بثبات</div>
   </div>
 
   <!-- Flutter bootstrap -->
@@ -148,13 +100,14 @@
   <script>
     // إخفاء شاشة التحميل بعد تحميل Flutter
     window.addEventListener('load', function() {
+      // إبقاء الشاشة لمدة 2 ثانية على الأقل لتظهر بشكل جيد
       setTimeout(function() {
         document.getElementById('loading').style.opacity = '0';
         document.getElementById('loading').style.transition = 'opacity 0.5s';
         setTimeout(function() {
           document.getElementById('loading').style.display = 'none';
         }, 500);
-      }, 2500);
+      }, 2000);
     });
 
     console.log('✅ موقع ALU يعمل');
