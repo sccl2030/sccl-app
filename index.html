@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- قاعدة المسار لمشروع GitHub Pages -->
-  <base href="/sccl-app/">
+  <!-- قاعدة المسار لمشروع GitHub Pages - اسم المشروع alu -->
+  <base href="/alu/">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,37 +17,30 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="ALU">
   
-  <!-- أيقونات iOS بأحجام مختلفة -->
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/Icon-192.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="icons/Icon-192.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="icons/Icon-192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="icons/Icon-192.png">
+  <!-- أيقونات iOS - المسار الصحيح للمشروع alu -->
+  <link rel="apple-touch-icon" href="/alu/icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/alu/icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/alu/icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/alu/icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/alu/icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/alu/icons/Icon-512.png">
   
-  <!-- أيقونة الشاشة الرئيسية لأجهزة iPad Pro (لأحجام أكبر) -->
-  <link rel="apple-touch-icon" sizes="512x512" href="icons/Icon-512.png">
+  <!-- أيقونات للمتصفحات - المسار الصحيح -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/alu/icons/favicon_v2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/alu/icons/favicon_v2.png">
+  <link rel="shortcut icon" href="/alu/icons/favicon_v2.png" type="image/x-icon">
   
-  <!-- شاشة البداية لنظام iOS (اختياري) - يمكن إضافتها إذا أردت -->
-  <!--
-  <link rel="apple-touch-startup-image" href="icons/splash.png">
-  -->
-
-  <!-- أيقونات للمتصفحات المختلفة -->
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon_v2.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon_v2.png">
-  <link rel="shortcut icon" href="icons/favicon_v2.png" type="image/x-icon">
+  <!-- أيقونة للمتصفحات الحديثة -->
+  <link rel="icon" type="image/svg+xml" href="/alu/icons/favicon_v2.png">
   
-  <!-- أيقونة للمتصفحات الحديثة (SVG لو أمكن) -->
-  <link rel="icon" type="image/svg+xml" href="icons/favicon_v2.png">
-  
-  <!-- أيقونات للمفضلة في المتصفحات القديمة -->
-  <link rel="mask-icon" href="icons/favicon_v2.png" color="#2196f3">
+  <!-- أيقونة لمتصفح Safari على macOS -->
+  <link rel="mask-icon" href="/alu/icons/favicon_v2.png" color="#2196f3">
 
   <title>ALU - مؤسسة علو للمقاولات</title>
 
-  <!-- رابط ملف manifest -->
-  <link rel="manifest" href="manifest.json">
+  <!-- رابط ملف manifest مع المسار الصحيح -->
+  <link rel="manifest" href="/alu/manifest.json">
   
-  <!-- أنماط CSS بسيطة لتجربة أفضل (اختياري) -->
   <style>
     body {
       margin: 0;
@@ -56,7 +49,6 @@
       background-color: #f5f5f5;
     }
     
-    /* مؤشر تحميل بسيط */
     .loading {
       display: flex;
       justify-content: center;
@@ -68,20 +60,23 @@
   </style>
 </head>
 <body>
-  <!-- عنصر لعرض رسالة تحميل أثناء تحميل Flutter -->
   <div class="loading" id="loading">جاري تحميل التطبيق...</div>
 
-  <!-- تضمين Flutter -->
   <script src="flutter_bootstrap.js" async></script>
   
-  <!-- إخفاء رسالة التحميل بعد تحميل Flutter (اختياري) -->
   <script>
-    // إخفاء رسالة التحميل بعد تحميل الصفحة كاملة
+    // إخفاء رسالة التحميل بعد تحميل الصفحة
     window.addEventListener('load', function() {
       setTimeout(function() {
         document.getElementById('loading').style.display = 'none';
       }, 1000);
     });
+    
+    // التحقق من المسارات (للتشخيص)
+    console.log('المشروع: alu');
+    console.log('Apple Touch Icon:', document.querySelector('link[rel="apple-touch-icon"]')?.href);
+    console.log('Favicon:', document.querySelector('link[rel="icon"]')?.href);
+    console.log('Manifest:', document.querySelector('link[rel="manifest"]')?.href);
   </script>
 </body>
 </html>
