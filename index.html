@@ -68,11 +68,8 @@
       font-size: 5rem;
       font-weight: 900;
       letter-spacing: 8px;
-      text-shadow: 0 0 20px rgba(33, 150, 243, 0.7);
-      margin-bottom: 1rem;
-      /* إزالة التوهج القديم لأن animate.css سيتولى الإضاءة */
-      /* مع الاحتفاظ بالتوهج كخلفية */
       text-shadow: 0 0 20px #2196f3, 0 0 40px #64b5f6;
+      margin-bottom: 1rem;
     }
 
     .logo p {
@@ -82,87 +79,7 @@
       color: #e0e0e0;
     }
 
-    /* حاوية الجمل والطريق */
-    .camel-runner {
-      position: relative;
-      width: 100%;
-      height: 140px;
-      margin: 2rem 0;
-      overflow: hidden;
-      border-radius: 100px;
-      background: rgba(0, 0, 0, 0.3);
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.5);
-    }
-
-    /* أرضية الصحراء */
-    .ground {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background: linear-gradient(to top, #b1740e, #e6b04c);
-      border-radius: 20px 20px 0 0;
-      box-shadow: 0 -5px 15px #e6b04c;
-    }
-
-    /* الجمل المتحرك */
-    .camel {
-      position: absolute;
-      bottom: 20px;
-      left: -100px;
-      width: 100px;
-      height: 80px;
-      animation: run 3s linear infinite;
-      filter: drop-shadow(5px 10px 5px rgba(0,0,0,0.3));
-    }
-
-    /* شكل الجمل باستخدام CSS (يمكن استبداله بصورة إذا أردت) */
-    .camel::before {
-      content: "🐪";
-      font-size: 5rem;
-      line-height: 1;
-      color: #d4a373;
-      display: block;
-      transform: scaleX(-1); /* ليجري باتجاه اليمين */
-      filter: drop-shadow(2px 4px 4px #00000066);
-    }
-
-    /* إذا كنت تفضل استخدام صورة حقيقية، قم بإلغاء تعليق هذه القواعد وتعطيل القاعدة السابقة */
-    /*
-    .camel img {
-      width: 100px;
-      height: auto;
-      display: block;
-    }
-    .camel::before {
-      display: none;
-    }
-    */
-
-    /* حركة الجري */
-    @keyframes run {
-      0% { left: -100px; transform: translateY(0px); }
-      20% { transform: translateY(-8px); }
-      40% { transform: translateY(0px); }
-      60% { transform: translateY(-5px); }
-      80% { transform: translateY(0px); }
-      100% { left: 110%; transform: translateY(0px); }
-    }
-
-    /* جمل آخر للحركة (اختياري) */
-    .camel:nth-child(2) {
-      animation-delay: 1.5s;
-      opacity: 0.7;
-      width: 80px;
-      bottom: 15px;
-    }
-
-    .camel:nth-child(2)::before {
-      font-size: 4rem;
-    }
-
-    /* شريط تقدم أنيق (اختياري) */
+    /* شريط تقدم أنيق */
     .progress-bar {
       width: 80%;
       height: 6px;
@@ -186,7 +103,7 @@
       100% { width: 0%; margin-left: 100%; }
     }
 
-    /* نص تحميل بلطف */
+    /* نص تحميل */
     .hint {
       color: #bbbbbb;
       font-size: 0.9rem;
@@ -194,51 +111,43 @@
       opacity: 0.8;
     }
 
-    /* إزالة التوهج القديم من h1 واستبداله بأنيميشن متوهج من animate.css اختيارياً */
+    /* تأثيرات animate.css للشعار */
     .logo h1 {
-      animation: pulse 2s infinite; /* يمكنك تغيير هذا التأثير */
+      animation: pulse 2s infinite;
     }
   </style>
 </head>
 <body>
   <div id="loading">
     <div class="logo">
-      <!-- تطبيق تأثيرات animate.css على الشعار مع تسلسل -->
       <h1 class="animate__animated animate__fadeInDown">ALU</h1>
       <p class="animate__animated animate__fadeInUp animate__delay-1s">مؤسسة علو للمقاولات</p>
     </div>
     
-    <div class="camel-runner animate__animated animate__fadeIn animate__delay-1s">
-      <div class="ground"></div>
-      <div class="camel"></div>
-      <div class="camel"></div>
-      <!-- يمكن إضافة المزيد من الجمال -->
-    </div>
+    <!-- تمت إزالة camel-runner بالكامل -->
     
-    <div class="progress-bar animate__animated animate__fadeIn animate__delay-2s">
+    <div class="progress-bar animate__animated animate__fadeIn animate__delay-1s">
       <div class="progress-fill"></div>
     </div>
     
-    <div class="hint animate__animated animate__fadeIn animate__delay-3s">صحراء المقاولات ... نتحرك بثبات</div>
+    <div class="hint animate__animated animate__fadeIn animate__delay-2s">صحراء المقاولات ... نتحرك بثبات</div>
   </div>
 
   <!-- Flutter bootstrap -->
   <script src="flutter_bootstrap.js" async></script>
   
   <script>
-    // إخفاء شاشة التحميل بعد تحميل Flutter (مع احترام أنيميشن animate.css)
+    // إخفاء شاشة التحميل بعد تحميل Flutter
     window.addEventListener('load', function() {
-      // ننتظر 2.5 ثانية لإكمال معظم تأثيرات animate.css
       setTimeout(function() {
         document.getElementById('loading').style.opacity = '0';
         document.getElementById('loading').style.transition = 'opacity 0.5s';
         setTimeout(function() {
           document.getElementById('loading').style.display = 'none';
         }, 500);
-      }, 2500); // 2.5 ثواني
+      }, 2500);
     });
 
-    // فحص مسارات الأيقونات للتأكد
     console.log('✅ موقع ALU يعمل');
   </script>
 </body>
