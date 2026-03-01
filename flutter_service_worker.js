@@ -3,10 +3,10 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "ff1d96953b8ff6da1c24dd00e6a7c295",
+const RESOURCES = {"flutter_bootstrap.js": "134fd2cba05e3ae945511dd1744ab002",
 "version.json": "83f6cc67aae2a3e55f86d1c0f0afce0e",
-"index.html": "eb7d1150b4335ce205a415598d5d87ae",
-"/": "eb7d1150b4335ce205a415598d5d87ae",
+"index.html": "496253d27950cc8f4fe104883a12e749",
+"/": "496253d27950cc8f4fe104883a12e749",
 "main.dart.js": "a5c4c4080e1f7275ba158fac7311ff22",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "favicon_v2.png": "402dc2025296d5979ecf775baf1e1525",
@@ -23,7 +23,7 @@ const RESOURCES = {"flutter_bootstrap.js": "ff1d96953b8ff6da1c24dd00e6a7c295",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/AssetManifest.bin": "b28051a7031ad87ad9f804679f62b3cc",
 "assets/fonts/MaterialIcons-Regular.otf": "b4acaee9595c57be262052a97f5f476f",
-"assets/assets/alu_logo.png": "d41d8cd98f00b204e9800998ecf8427e",
+"assets/assets/alu_logo.png": "9d627beefc4cebbf726e385e01fd3c60",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
