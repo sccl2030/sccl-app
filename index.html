@@ -33,6 +33,9 @@
   <title>ALU - مؤسسة علو للمقاولات</title>
   <link rel="manifest" href="manifest.json">
   
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
   <style>
     /* إعادة تعيين الهوامش */
     * {
@@ -67,12 +70,9 @@
       letter-spacing: 8px;
       text-shadow: 0 0 20px rgba(33, 150, 243, 0.7);
       margin-bottom: 1rem;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 20px #2196f3; }
-      to { text-shadow: 0 0 40px #64b5f6, 0 0 60px #2196f3; }
+      /* إزالة التوهج القديم لأن animate.css سيتولى الإضاءة */
+      /* مع الاحتفاظ بالتوهج كخلفية */
+      text-shadow: 0 0 20px #2196f3, 0 0 40px #64b5f6;
     }
 
     .logo p {
@@ -193,43 +193,49 @@
       margin-top: 1rem;
       opacity: 0.8;
     }
+
+    /* إزالة التوهج القديم من h1 واستبداله بأنيميشن متوهج من animate.css اختيارياً */
+    .logo h1 {
+      animation: pulse 2s infinite; /* يمكنك تغيير هذا التأثير */
+    }
   </style>
 </head>
 <body>
   <div id="loading">
     <div class="logo">
-      <h1>ALU</h1>
-      <p>مؤسسة علو للمقاولات</p>
+      <!-- تطبيق تأثيرات animate.css على الشعار مع تسلسل -->
+      <h1 class="animate__animated animate__fadeInDown">ALU</h1>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">مؤسسة علو للمقاولات</p>
     </div>
     
-    <div class="camel-runner">
+    <div class="camel-runner animate__animated animate__fadeIn animate__delay-1s">
       <div class="ground"></div>
       <div class="camel"></div>
       <div class="camel"></div>
       <!-- يمكن إضافة المزيد من الجمال -->
     </div>
     
-    <div class="progress-bar">
+    <div class="progress-bar animate__animated animate__fadeIn animate__delay-2s">
       <div class="progress-fill"></div>
     </div>
     
-    <div class="hint">صحراء المقاولات ... نتحرك بثبات</div>
+    <div class="hint animate__animated animate__fadeIn animate__delay-3s">صحراء المقاولات ... نتحرك بثبات</div>
   </div>
 
   <!-- Flutter bootstrap -->
   <script src="flutter_bootstrap.js" async></script>
   
   <script>
-    // إخفاء شاشة التحميل بعد تحميل Flutter (مع تأخير بسيط للأنيميشن)
+    // إخفاء شاشة التحميل بعد تحميل Flutter (مع احترام أنيميشن animate.css)
     window.addEventListener('load', function() {
-      // ننتظر ثانيتين على الأقل لإظهار الأنيميشن بشكل جميل
+      // ننتظر 2.5 ثانية لإكمال معظم تأثيرات animate.css
       setTimeout(function() {
         document.getElementById('loading').style.opacity = '0';
         document.getElementById('loading').style.transition = 'opacity 0.5s';
         setTimeout(function() {
           document.getElementById('loading').style.display = 'none';
         }, 500);
-      }, 2000); // 2 ثواني من التحميل
+      }, 2500); // 2.5 ثواني
     });
 
     // فحص مسارات الأيقونات للتأكد
